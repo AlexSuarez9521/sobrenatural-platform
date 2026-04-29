@@ -1,0 +1,12 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": { "singularName": "page", "pluralName": "pages", "displayName": "Página" },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "slug": { "type": "uid", "targetField": "title" },
+    "content": { "type": "richtext" },
+    "seo": { "type": "component", "component": "shared.seo", "repeatable": false }
+  }
+}

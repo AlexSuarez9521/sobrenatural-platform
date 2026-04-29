@@ -1,0 +1,83 @@
+name: sobrenatural-platform
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: sobrenatural-db-prod
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER:-sobrenatural}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-sobrenatural123}
+      POSTGRES_DB: ${DB_NAME:-sobrenatural}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - dokploy-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-sobrenatural} -d ${DB_NAME:-sobrenatural}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: sobrenatural-backend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 1337
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_NAME: ${DB_NAME:-sobrenatural}
+      DATABASE_USERNAME: ${DB_USER:-sobrenatural}
+      DATABASE_PASSWORD: ${DB_PASSWORD:-sobrenatural123}
+      DATABASE_SSL: "false"
+      APP_KEYS: ${APP_KEYS:-key1,key2,key3,key4}
+      API_TOKEN_SALT: ${API_TOKEN_SALT:-api-token-salt}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET:-admin-jwt-secret}
+      TRANSFER_TOKEN_SALT: ${TRANSFER_TOKEN_SALT:-transfer-token-salt}
+      JWT_SECRET: ${JWT_SECRET:-jwt-secret}
+      PUBLIC_URL: ${PUBLIC_URL:-https://sobrenaturalinmobiliaria.com}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - dokploy-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sobrenatural-backend.rule=Host(`admin.sobrenaturalinmobiliaria.com`)"
+      - "traefik.http.routers.sobrenatural-backend.entrypoints=websecure"
+      - "traefik.http.routers.sobrenatural-backend.tls.certresolver=letsencrypt"
+      - "traefik.http.services.sobrenatural-backend.loadbalancer.server.port=1337"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: sobrenatural-frontend
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      STRAPI_API_URL: ${STRAPI_API_URL:-http://backend:1337}
+    depends_on:
+      - backend
+    networks:
+      - dokploy-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sobrenatural-frontend.rule=Host(`sobrenaturalinmobiliaria.com`, `www.sobrenaturalinmobiliaria.com`)"
+      - "traefik.http.routers.sobrenatural-frontend.entrypoints=websecure"
+      - "traefik.http.routers.sobrenatural-frontend.tls.certresolver=letsencrypt"
+      - "traefik.http.services.sobrenatural-frontend.loadbalancer.server.port=3000"
+
+volumes:
+  postgres_data:
+
+networks:
+  dokploy-network:
+    external: true
