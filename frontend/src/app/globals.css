@@ -2,15 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @layer base {
+  :root {
+    /* Primary colors */
+    --color-primary-50: #e8f0f8;
+    --color-primary-100: #c5d9f0;
+    --color-primary-200: #9fbfe6;
+    --color-primary-300: #79a5dc;
+    --color-primary-400: #5c91d4;
+    --color-primary-500: #3D85C6;
+    --color-primary-600: #145BAD;
+    --color-primary-700: #0F437F;
+    --color-primary-800: #0E3E76;
+    --color-primary-900: #0a2d56;
+
+    /* Accent colors */
+    --color-accent-50: #f4fce3;
+    --color-accent-100: #e3f7b8;
+    --color-accent-200: #d0f28a;
+    --color-accent-300: #bded5c;
+    --color-accent-400: #a3d900;
+    --color-accent-500: #8FCE00;
+    --color-accent-600: #7ab300;
+    --color-accent-700: #659900;
+
+    /* Slate colors */
+    --color-slate-50: #f8fafc;
+    --color-slate-100: #f1f5f9;
+    --color-slate-200: #e2e8f0;
+    --color-slate-300: #cbd5e1;
+    --color-slate-400: #94a3b8;
+    --color-slate-500: #64748b;
+    --color-slate-600: #475569;
+    --color-slate-700: #334155;
+    --color-slate-800: #1e293b;
+    --color-slate-900: #0f172a;
+
+    /* Semantic */
+    --color-success: #22c55e;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-info: #3b82f6;
+  }
+
   html {
     scroll-behavior: smooth;
   }
+
   body {
-    @apply bg-light text-dark antialiased;
+    @apply bg-slate-50 text-slate-800 antialiased;
     font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  /* Focus visible for accessibility */
+  :focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 2px;
   }
 }
 
@@ -18,22 +75,164 @@
   .container-main {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+
+  /* Buttons */
   .btn-primary {
-    @apply inline-flex items-center justify-center bg-accent hover:bg-accent-500 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5;
+    @apply inline-flex items-center justify-center bg-accent-500 hover:bg-accent-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5;
   }
+
   .btn-secondary {
-    @apply inline-flex items-center justify-center bg-brand-800 hover:bg-brand-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg;
+    @apply inline-flex items-center justify-center bg-primary-800 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg;
   }
+
   .btn-outline {
-    @apply inline-flex items-center justify-center border-2 border-brand-800 text-brand-800 hover:bg-brand-800 hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200;
+    @apply inline-flex items-center justify-center border-2 border-primary-800 text-primary-800 hover:bg-primary-800 hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200;
   }
+
+  .btn-outline-white {
+    @apply inline-flex items-center justify-center border-2 border-white/30 text-white hover:bg-white hover:text-primary-800 font-semibold py-3 px-6 rounded-lg transition-all duration-200 backdrop-blur-sm;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center text-primary-700 hover:text-primary-800 hover:bg-primary-50 font-semibold py-3 px-6 rounded-lg transition-all duration-200;
+  }
+
+  /* Cards */
   .card-property {
-    @apply bg-white rounded-xl shadow-sm hover:shadow-xl border border-gray-100 overflow-hidden transition-all duration-300 hover:-translate-y-1;
+    @apply bg-white rounded-xl shadow-card hover:shadow-card-hover border border-slate-100 overflow-hidden transition-all duration-300 hover:-translate-y-1;
   }
+
+  .card-default {
+    @apply bg-white rounded-xl shadow-sm hover:shadow-md border border-slate-100 overflow-hidden transition-all duration-300;
+  }
+
+  /* Typography */
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-brand-800;
+    @apply text-h2 font-display text-primary-800;
   }
+
+  .section-subtitle {
+    @apply text-body-lg text-slate-500 max-w-2xl;
+  }
+
+  .overline {
+    @apply text-overline uppercase text-accent-500 tracking-widest;
+  }
+
+  /* Badges */
   .badge {
     @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider;
+  }
+
+  .badge-primary {
+    @apply badge bg-primary-800 text-white;
+  }
+
+  .badge-accent {
+    @apply badge bg-accent-500 text-white;
+  }
+
+  .badge-slate {
+    @apply badge bg-slate-100 text-slate-700;
+  }
+
+  /* Skeleton loading */
+  .skeleton {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  /* Image hover zoom */
+  .image-zoom {
+    @apply overflow-hidden;
+  }
+
+  .image-zoom img {
+    @apply transition-transform duration-500 ease-smooth;
+  }
+
+  .image-zoom:hover img {
+    @apply scale-105;
+  }
+
+  /* Card lift hover */
+  .card-lift {
+    @apply transition-all duration-300 ease-smooth;
+  }
+
+  .card-lift:hover {
+    @apply -translate-y-1 shadow-lg;
+  }
+
+  /* Gradient overlays */
+  .gradient-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-primary-900/90 via-primary-800/50 to-transparent;
+  }
+
+  .gradient-overlay-r {
+    @apply absolute inset-0 bg-gradient-to-r from-primary-900/95 via-primary-800/85 to-primary-700/70;
+  }
+
+  /* Container variants */
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-wide {
+    @apply max-w-8xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  /* Animation delays */
+  .animation-delay-100 {
+    animation-delay: 0.1s;
+  }
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+  .animation-delay-300 {
+    animation-delay: 0.3s;
+  }
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+  .animation-delay-500 {
+    animation-delay: 0.5s;
+  }
+
+  /* Line clamp */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Text balance */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Hide scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
