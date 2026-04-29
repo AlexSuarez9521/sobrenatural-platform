@@ -9,29 +9,31 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply text-slate-800 bg-white antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  }
-  h1, h2, h3, h4, h5, h6 {
+    @apply bg-light text-dark antialiased;
     font-family: 'Inter', system-ui, sans-serif;
-    letter-spacing: -0.02em;
   }
 }
 
 @layer components {
-  .container-wide {
+  .container-main {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  .container-narrow {
-    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
   .btn-primary {
-    @apply inline-flex items-center justify-center bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 shadow-lg shadow-brand-500/25 hover:shadow-xl hover:shadow-brand-500/30 hover:-translate-y-0.5;
+    @apply inline-flex items-center justify-center bg-accent hover:bg-accent-500 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center bg-brand-800 hover:bg-brand-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg;
   }
   .btn-outline {
-    @apply inline-flex items-center justify-center bg-white hover:bg-gray-50 text-slate-800 font-semibold py-3 px-6 rounded-xl transition-all duration-200 border border-gray-200 hover:border-gray-300;
+    @apply inline-flex items-center justify-center border-2 border-brand-800 text-brand-800 hover:bg-brand-800 hover:text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200;
   }
   .card-property {
-    @apply bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 border border-gray-100;
+    @apply bg-white rounded-xl shadow-sm hover:shadow-xl border border-gray-100 overflow-hidden transition-all duration-300 hover:-translate-y-1;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-brand-800;
+  }
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider;
   }
 }
