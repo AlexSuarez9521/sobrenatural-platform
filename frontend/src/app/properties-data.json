@@ -7,9 +7,13 @@
     "businessType": "Venta",
     "price": 1600000000,
     "rentPrice": null,
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "area": 320,
     "location": { "city": "Santa Marta", "neighborhood": "Rodadero Sur" },
-    "featuredImage": null,
-    "shortDescription": "Espectacular penthouse con vista directa al mar, acabados de lujo y amplia terraza."
+    "featuredImage": { "url": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80" },
+    "shortDescription": "Espectacular penthouse con vista directa al mar, acabados de lujo y amplia terraza.",
+    "featured": true
   },
   {
     "id": 2,
@@ -19,9 +23,13 @@
     "businessType": "Venta",
     "price": 420000000,
     "rentPrice": null,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "area": 85,
     "location": { "city": "Santa Marta", "neighborhood": "Rodadero" },
-    "featuredImage": null,
-    "shortDescription": "Apartamento perfecto para inversión en renta turística, a pocos metros del mar."
+    "featuredImage": { "url": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80" },
+    "shortDescription": "Apartamento perfecto para inversión en renta turística, a pocos metros del mar.",
+    "featured": true
   },
   {
     "id": 3,
@@ -31,45 +39,61 @@
     "businessType": "Venta",
     "price": 960000000,
     "rentPrice": 6500000,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "area": 140,
     "location": { "city": "Santa Marta", "neighborhood": "Pozos Colorados" },
-    "featuredImage": null,
-    "shortDescription": "Apartamento moderno en Pozos Colorados con vista panorámica y acabados premium."
+    "featuredImage": { "url": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80" },
+    "shortDescription": "Apartamento moderno en Pozos Colorados con vista panorámica y acabados premium.",
+    "featured": true
   },
   {
     "id": 4,
-    "title": "Vive en Bellavista: Apartamento Amoblado en Arriendo - G.018",
+    "title": "Vive en Bellavista: Apartamento Amoblado en Arriendo",
     "slug": "apartamento-bellavista-amoblado",
     "propertyType": "Apartamento",
     "businessType": "Arriendo",
     "price": null,
     "rentPrice": 2000000,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "area": 65,
     "location": { "city": "Santa Marta", "neighborhood": "Bellavista" },
-    "featuredImage": null,
-    "shortDescription": "Apartamento totalmente amoblado en Bellavista, listo para habitar."
+    "featuredImage": { "url": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80" },
+    "shortDescription": "Apartamento totalmente amoblado en Bellavista, listo para habitar.",
+    "featured": false
   },
   {
     "id": 5,
-    "title": "Cómoda casa de 170M2 en el Jardin C-6",
+    "title": "Cómoda casa de 170m² en El Jardín",
     "slug": "casa-jardin-170m2",
     "propertyType": "Casa",
     "businessType": "Venta",
     "price": 500000000,
     "rentPrice": null,
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "area": 170,
     "location": { "city": "Santa Marta", "neighborhood": "El Jardín" },
-    "featuredImage": null,
-    "shortDescription": "Espaciosa casa de 170m2 en zona residencial tranquila."
+    "featuredImage": { "url": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" },
+    "shortDescription": "Espaciosa casa de 170m² en zona residencial tranquila.",
+    "featured": true
   },
   {
     "id": 6,
-    "title": "Moderno apartamento en venta con balcón y vista en SM G-28",
+    "title": "Moderno apartamento en venta con balcón y vista en Santa Marta",
     "slug": "apartamento-balcon-vista",
     "propertyType": "Apartamento",
     "businessType": "Venta",
     "price": 115000000,
     "rentPrice": null,
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "area": 45,
     "location": { "city": "Santa Marta", "neighborhood": "Centro" },
-    "featuredImage": null,
-    "shortDescription": "Apartamento moderno con balcón y excelente vista a la ciudad."
+    "featuredImage": { "url": "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=800&q=80" },
+    "shortDescription": "Apartamento moderno con balcón y excelente vista a la ciudad.",
+    "featured": false
   },
   {
     "id": 7,
@@ -79,9 +103,13 @@
     "businessType": "Arriendo",
     "price": null,
     "rentPrice": 9000000,
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "area": 80,
     "location": { "city": "Santa Marta", "neighborhood": "Centro" },
-    "featuredImage": null,
-    "shortDescription": "Local comercial en zona de alto tráfico, ideal para cualquier negocio."
+    "featuredImage": { "url": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" },
+    "shortDescription": "Local comercial en zona de alto tráfico, ideal para cualquier negocio.",
+    "featured": false
   },
   {
     "id": 8,
@@ -91,32 +119,44 @@
     "businessType": "Venta",
     "price": 950000000,
     "rentPrice": null,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "area": 130,
     "location": { "city": "Santa Marta", "neighborhood": "Bellavista" },
-    "featuredImage": null,
-    "shortDescription": "Apartamento exclusivo en una de las mejores zonas de Bellavista."
+    "featuredImage": { "url": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80" },
+    "shortDescription": "Apartamento exclusivo en una de las mejores zonas de Bellavista.",
+    "featured": true
   },
   {
     "id": 9,
-    "title": "Hermoso apartamento en primera línea al mar- Playa Salguero E-4",
+    "title": "Hermoso apartamento en primera línea al mar – Playa Salguero",
     "slug": "apartamento-playa-salguero",
     "propertyType": "Apartamento",
     "businessType": "Venta",
     "price": 820000000,
     "rentPrice": null,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "area": 110,
     "location": { "city": "Santa Marta", "neighborhood": "Playa Salguero" },
-    "featuredImage": null,
-    "shortDescription": "Apartamento en primera línea de playa con acceso directo al mar."
+    "featuredImage": { "url": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80" },
+    "shortDescription": "Apartamento en primera línea de playa con acceso directo al mar.",
+    "featured": true
   },
   {
     "id": 10,
-    "title": "Hermosa Casa Ecológica en Arriendo – Minca - G.019",
+    "title": "Hermosa Casa Ecológica en Arriendo – Minca",
     "slug": "casa-ecologica-minca",
     "propertyType": "Casa",
     "businessType": "Arriendo",
     "price": null,
     "rentPrice": 2500000,
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "area": 150,
     "location": { "city": "Santa Marta", "neighborhood": "Minca" },
-    "featuredImage": null,
-    "shortDescription": "Casa ecológica rodeada de naturaleza en Minca, perfecta para descansar."
+    "featuredImage": { "url": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800&q=80" },
+    "shortDescription": "Casa ecológica rodeada de naturaleza en Minca, perfecta para descansar.",
+    "featured": false
   }
 ]

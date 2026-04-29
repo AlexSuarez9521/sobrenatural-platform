@@ -7,6 +7,8 @@ services:
       dockerfile: Dockerfile
     container_name: sobrenatural-backend-prod
     restart: unless-stopped
+    ports:
+      - "127.0.0.1:4016:1337"
     environment:
       NODE_ENV: production
       HOST: 0.0.0.0
@@ -26,12 +28,6 @@ services:
       PUBLIC_URL: https://admin-sobrenatural.busticco.com
     networks:
       - dokploy-network
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.sobrenatural-backend.rule=Host(`admin-sobrenatural.busticco.com`)"
-      - "traefik.http.routers.sobrenatural-backend.entrypoints=websecure"
-      - "traefik.http.routers.sobrenatural-backend.tls.certresolver=letsencrypt"
-      - "traefik.http.services.sobrenatural-backend.loadbalancer.server.port=1337"
 
   frontend:
     build:
@@ -39,18 +35,14 @@ services:
       dockerfile: Dockerfile
     container_name: sobrenatural-frontend-prod
     restart: unless-stopped
+    ports:
+      - "127.0.0.1:4015:3000"
     environment:
       NODE_ENV: production
       PORT: 3000
       STRAPI_API_URL: http://sobrenatural-backend-prod:1337
     networks:
       - dokploy-network
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.sobrenatural-frontend.rule=Host(`sobrenatural.busticco.com`)"
-      - "traefik.http.routers.sobrenatural-frontend.entrypoints=websecure"
-      - "traefik.http.routers.sobrenatural-frontend.tls.certresolver=letsencrypt"
-      - "traefik.http.services.sobrenatural-frontend.loadbalancer.server.port=3000"
 
 networks:
   dokploy-network:
