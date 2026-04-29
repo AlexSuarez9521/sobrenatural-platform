@@ -23,12 +23,12 @@ services:
       ADMIN_JWT_SECRET: admin-jwt-secret
       TRANSFER_TOKEN_SALT: transfer-token-salt
       JWT_SECRET: jwt-secret
-      PUBLIC_URL: https://admin.sobrenaturalinmobiliaria.com
+      PUBLIC_URL: https://admin-sobrenatural.busticco.com
     networks:
       - dokploy-network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.sobrenatural-backend.rule=Host(`admin.sobrenaturalinmobiliaria.com`)"
+      - "traefik.http.routers.sobrenatural-backend.rule=Host(`admin-sobrenatural.busticco.com`)"
       - "traefik.http.routers.sobrenatural-backend.entrypoints=websecure"
       - "traefik.http.routers.sobrenatural-backend.tls.certresolver=letsencrypt"
       - "traefik.http.services.sobrenatural-backend.loadbalancer.server.port=1337"
@@ -47,7 +47,7 @@ services:
       - dokploy-network
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.sobrenatural-frontend.rule=Host(`sobrenaturalinmobiliaria.com`, `www.sobrenaturalinmobiliaria.com`)"
+      - "traefik.http.routers.sobrenatural-frontend.rule=Host(`sobrenatural.busticco.com`)"
       - "traefik.http.routers.sobrenatural-frontend.entrypoints=websecure"
       - "traefik.http.routers.sobrenatural-frontend.tls.certresolver=letsencrypt"
       - "traefik.http.services.sobrenatural-frontend.loadbalancer.server.port=3000"
